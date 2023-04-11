@@ -1,0 +1,9 @@
+Website design and development
+Content Management System integration
+E-commerce integration
+Responsive design
+Search engine optimization
+Admin Dashboard implementation
+Third-party authentication (OAuth)
+Maintenance and support
+Custom web/mobile application
