@@ -1,0 +1,9 @@
+Sprint 1 과 2는 사실 개발자쪽은 많이 바쁠게 없으니, 일단 매주 수요일 status 를 체크하는 메시지를 보내는건 어떨까요?
+What are you focussing on these few days?
+Any blockers?
+이 질문들에대한 답을 쓰면 좋겠습니다.
+그리고, Sprint 3 정도부터, 저희가 직접적으로 개발에 들어갔을땐
+- What did you do yesterday?
+- What are you going do today?
+- Any blockers?
+이 질문들에 대한 답을 월~금 매일 올리면 좋을 것 같습니다.
