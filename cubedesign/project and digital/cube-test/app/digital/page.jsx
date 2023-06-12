@@ -1,6 +1,6 @@
-import React from 'react';
 
-const Digital = () => {
+
+const DigitalPage = () => {
   return (
     <div>
       <h1>Digital Page</h1>
@@ -9,4 +9,4 @@ const Digital = () => {
   );
 };
 
-export default Digital;
+export default DigitalPage;

@@ -1,10 +1,9 @@
-import React from 'react';
 import Link from 'next/link';
 
 const MenuBar = () => {
   return (
-    <nav>
-      <ul>
+    <nav className='h-20'>
+      <ul className='flex'>
         <li>
           <Link href="/">Home</Link>
         </li>
@@ -13,6 +12,9 @@ const MenuBar = () => {
         </li>
         <li>
           <Link href="/digital">Digital</Link>
+        </li>
+        <li>
+          <Link href="/contact">Contact</Link>
         </li>
       </ul>
     </nav>
