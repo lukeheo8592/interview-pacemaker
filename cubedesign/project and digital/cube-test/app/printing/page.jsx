@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import styles from "@styles/footer.module.css";
+import printing from "@styles/printing.module.css";
 import { Swiper, SwiperSlide } from "swiper/react"; // basic
 import SwiperCore, { Navigation, Pagination } from "swiper";
 import "swiper/css"; //basic
@@ -15,18 +16,31 @@ const PrintingPage = () => {
   const [design, setDesign] = useState(false);
   const [product, setProduct] = useState(false);
   const [slide, setSlide] = useState(true);
+  const install = document.getElementById("printing");
+    const wayfinding = document.getElementById("design");
+    const promotional = document.getElementById("product");
 
-  const isPrint = () => {
+
+  const isPrint = (e) => {
+    e.target.parentNode.classList.add("bg-red-600");
+    wayfinding.classList.remove("bg-red-600");
+    promotional.classList.remove("bg-red-600");
     setPrint(true);
     setDesign(false);
     setProduct(false);
   };
-  const isDesign = () => {
+  const isDesign = (e) => {
+    e.target.parentNode.classList.add("bg-red-600");
+    install.classList.remove("bg-red-600");
+    promotional.classList.remove("bg-red-600");
     setPrint(false);
     setDesign(true);
     setProduct(false);
   };
-  const isProduct = () => {
+  const isProduct = (e) => {
+    e.target.parentNode.classList.add("bg-red-600");
+    wayfinding.classList.remove("bg-red-600");
+    install.classList.remove("bg-red-600");
     setPrint(false);
     setDesign(false);
     setProduct(true);
@@ -43,9 +57,10 @@ const PrintingPage = () => {
   return (
     <div>
       {/* bacground photo */}
-      <div className="h-40">
-        {" "}
-        <div className="h-full bg-red-300">Background photo</div>
+      <div className={printing.bgimg}>
+        <div className="h-full flex flex-col justify-end pl-20 pb-36">
+          <h1 className="text-4xl font-semibold">Printing</h1> <p className="text-lg"> <br/>Maximize your visual impact with our professional printing and <br/> installation services, including wayfinding and promotional products.</p>
+        </div>
       </div>
       {/* our service */}
       <div>
@@ -53,14 +68,14 @@ const PrintingPage = () => {
           <div className="h-12">
             <h2>Our Service</h2>
           </div>
-          <div className="w-7/12 flex justify-between">
-            <div onClick={isPrint}>
+          <div className="w-7/12 flex justify-between border-b-8 border-red-600 mb-10">
+            <div id="printing" className="w-2/6" onClick={isPrint}>
               <p>Printing & Installation</p>
             </div>
-            <div onClick={isDesign}>
+            <div id="design" className="w-2/6" onClick={isDesign}>
               <p> wayfinding Design</p>
             </div>
-            <div onClick={isProduct}>
+            <div id="product" className="w-2/6" onClick={isProduct}>
               <p>Promotional Product</p>
             </div>
           </div>
@@ -119,7 +134,6 @@ const PrintingPage = () => {
           <SwiperSlide className="bg-emerald-600">Slide 3</SwiperSlide>
           <SwiperSlide className="bg-emerald-600">Slide 4</SwiperSlide>
           <SwiperSlide className="bg-emerald-600">Slide 5</SwiperSlide>
-
           <SwiperSlide className="bg-emerald-600">Slide 6</SwiperSlide>
           ...
         </Swiper>
