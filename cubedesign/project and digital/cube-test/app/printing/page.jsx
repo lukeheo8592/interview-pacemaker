@@ -16,31 +16,28 @@ const PrintingPage = () => {
   const [design, setDesign] = useState(false);
   const [product, setProduct] = useState(false);
   const [slide, setSlide] = useState(true);
-  const install = document.getElementById("printing");
-    const wayfinding = document.getElementById("design");
-    const promotional = document.getElementById("product");
 
 
   const isPrint = (e) => {
     e.target.parentNode.classList.add("bg-red-600");
-    wayfinding.classList.remove("bg-red-600");
-    promotional.classList.remove("bg-red-600");
+    e.target.parentNode.nextElementSibling.classList.remove("bg-red-600");
+    e.target.parentNode.nextElementSibling.nextElementSibling.classList.remove("bg-red-600");
     setPrint(true);
     setDesign(false);
     setProduct(false);
   };
   const isDesign = (e) => {
     e.target.parentNode.classList.add("bg-red-600");
-    install.classList.remove("bg-red-600");
-    promotional.classList.remove("bg-red-600");
+    e.target.parentNode.nextElementSibling.classList.remove("bg-red-600");
+    e.target.parentNode.previousElementSibling.classList.remove("bg-red-600");
     setPrint(false);
     setDesign(true);
     setProduct(false);
   };
   const isProduct = (e) => {
     e.target.parentNode.classList.add("bg-red-600");
-    wayfinding.classList.remove("bg-red-600");
-    install.classList.remove("bg-red-600");
+    e.target.parentNode.previousElementSibling.classList.remove("bg-red-600");
+    e.target.parentNode.previousElementSibling.previousElementSibling.classList.remove("bg-red-600");
     setPrint(false);
     setDesign(false);
     setProduct(true);
