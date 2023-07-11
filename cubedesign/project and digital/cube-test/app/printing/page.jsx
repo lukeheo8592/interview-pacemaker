@@ -4,7 +4,7 @@ import { useState } from "react";
 import styles from "@styles/footer.module.css";
 import printing from "@styles/printing.module.css";
 import { Swiper, SwiperSlide } from "swiper/react"; // basic
-import SwiperCore, { Navigation, Pagination } from "swiper";
+import SwiperCore, { Autoplay, Navigation, Pagination } from "swiper";
 import "swiper/css"; //basic
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -16,12 +16,16 @@ const PrintingPage = () => {
   const [design, setDesign] = useState(false);
   const [product, setProduct] = useState(false);
   const [slide, setSlide] = useState(true);
+  const [isclick, setclick] = useState(false);
 
+  //oursercie
 
   const isPrint = (e) => {
     e.target.parentNode.classList.add("bg-red-600");
     e.target.parentNode.nextElementSibling.classList.remove("bg-red-600");
-    e.target.parentNode.nextElementSibling.nextElementSibling.classList.remove("bg-red-600");
+    e.target.parentNode.nextElementSibling.nextElementSibling.classList.remove(
+      "bg-red-600"
+    );
     setPrint(true);
     setDesign(false);
     setProduct(false);
@@ -37,11 +41,42 @@ const PrintingPage = () => {
   const isProduct = (e) => {
     e.target.parentNode.classList.add("bg-red-600");
     e.target.parentNode.previousElementSibling.classList.remove("bg-red-600");
-    e.target.parentNode.previousElementSibling.previousElementSibling.classList.remove("bg-red-600");
+    e.target.parentNode.previousElementSibling.previousElementSibling.classList.remove(
+      "bg-red-600"
+    );
     setPrint(false);
     setDesign(false);
     setProduct(true);
   };
+
+  // service list
+
+  const isModal = (e) => {
+    if (e.target.id == "container") {
+      e.target.classList.remove(printing.servicelist);
+      e.target.classList.add(printing.servicelist1);
+
+      e.target.firstElementChild.classList.remove(printing.serviceText);
+      e.target.firstElementChild.classList.add(printing.serviceText1);
+
+      e.target.lastElementChild.classList.remove(printing.modalExit);
+      e.target.lastElementChild.classList.add(printing.modalExit1);
+    }
+  };
+
+  const exitModal = (e) => {
+    e.target.parentNode.parentNode.classList.remove(printing.servicelist1);
+    e.target.parentNode.parentNode.classList.add(printing.servicelist);
+    e.target.parentNode.parentNode.firstElementChild.classList.remove(
+      printing.serviceText1
+    );
+    e.target.parentNode.parentNode.firstElementChild.classList.add(
+      printing.serviceText
+    );
+    e.target.parentNode.classList.remove(printing.modalExit1);
+    e.target.parentNode.classList.add(printing.modalExit);
+  };
+  //slide
 
   const rightSlide = () => {
     setSlide(false);
@@ -56,7 +91,14 @@ const PrintingPage = () => {
       {/* bacground photo */}
       <div className={printing.bgimg}>
         <div className="h-full flex flex-col justify-end pl-20 pb-36">
-          <h1 className="text-4xl font-semibold">Printing</h1> <p className="text-lg"> <br/>Maximize your visual impact with our professional printing and <br/> installation services, including wayfinding and promotional products.</p>
+          <h1 className="text-4xl font-semibold">Printing</h1>{" "}
+          <p className="text-lg">
+            {" "}
+            <br />
+            Maximize your visual impact with our professional printing and{" "}
+            <br /> installation services, including wayfinding and promotional
+            products.
+          </p>
         </div>
       </div>
       {/* our service */}
@@ -66,7 +108,7 @@ const PrintingPage = () => {
             <h2>Our Service</h2>
           </div>
           <div className="w-7/12 flex justify-between border-b-8 border-red-600 mb-10">
-            <div id="printing" className="w-2/6" onClick={isPrint}>
+            <div id="printing" className="w-2/6 bg-red-600" onClick={isPrint}>
               <p>Printing & Installation</p>
             </div>
             <div id="design" className="w-2/6" onClick={isDesign}>
@@ -76,17 +118,84 @@ const PrintingPage = () => {
               <p>Promotional Product</p>
             </div>
           </div>
-          <div className="w-7/12 h-60">
+          <div className="w-7/12 h-96">
             {print ? (
-              <div className="w-full h-full flex justify-between">
-                <div className="h-full w-1/4 bg-red-300"></div>
-                <div className="h-full w-1/4 bg-red-300"></div>
-                <div className="h-full w-1/4 bg-red-300"></div>
+              <div className="w-full h-full flex justify-between relative">
+                <div
+                  id="container"
+                  className={printing.servicelist}
+                  onClick={isModal}
+                >
+                  <div className={printing.serviceText}>
+                    {" "}
+                    <p className="ml-5">Large Format Printing</p>
+                  </div>
+                  <div
+                    id="exit"
+                    className={printing.modalExit}
+                    onClick={exitModal}
+                  >
+                    {" "}
+                    <button>x</button>
+                  </div>
+                </div>
+                <div
+                  id="container"
+                  className={printing.servicelist}
+                  onClick={isModal}
+                >
+                  <div className={printing.serviceText}>
+                    {" "}
+                    <p className="ml-5">Digital Printing Service</p>
+                  </div>
+                  <div
+                    id="exit"
+                    className={printing.modalExit}
+                    onClick={exitModal}
+                  >
+                    {" "}
+                    <button>x</button>
+                  </div>
+                </div>
+                <div
+                  id="container"
+                  className={printing.servicelist}
+                  onClick={isModal}
+                >
+                  <div className={printing.serviceText}>
+                    {" "}
+                    <p className="ml-5">Installation Service</p>
+                  </div>
+                  <div
+                    id="exit"
+                    className={printing.modalExit}
+                    onClick={exitModal}
+                  >
+                    {" "}
+                    <button>x</button>
+                  </div>
+                </div>
               </div>
             ) : design ? (
-              <div className="w-full h-full flex justify-between">
-                <div className="h-full w-1/4 bg-indigo-900"></div>
-                <div className="h-full w-1/4 bg-indigo-900"></div>
+              <div className="w-full h-full flex justify-between relative">
+                <div
+                  id="container"
+                  className={printing.servicelist}
+                  onClick={isModal}
+                >
+                  <div className={printing.serviceText}>
+                    {" "}
+                    <p className="ml-5">Large Format Printing</p>
+                  </div>
+                  <div
+                    id="exit"
+                    className={printing.modalExit}
+                    onClick={exitModal}
+                  >
+                    {" "}
+                    <button>x</button>
+                  </div>
+                </div>
               </div>
             ) : (
               <div className="w-full h-full flex justify-between">
@@ -117,12 +226,19 @@ const PrintingPage = () => {
         <Swiper
           spaceBetween={50}
           slidesPerView={3}
+          speed={1200}
+          autoplay={{
+            delay: 1000,
+            disableOnInteraction: false,
+          }}
+          loop={true}
           scrollbar={{ draggable: true }}
           navigation
           pagination={{ clickable: true }}
+          modules={[Autoplay, Pagination, Navigation]}
           breakpoints={{
             768: {
-              slidesPerView: 7,
+              slidesPerView: 3,
             },
           }}
         >
