@@ -227,6 +227,7 @@ const PrintingPage = () => {
           spaceBetween={50}
           slidesPerView={3}
           speed={1200}
+          slidesPerGroup= {3}
           autoplay={{
             delay: 1000,
             disableOnInteraction: false,
@@ -235,7 +236,7 @@ const PrintingPage = () => {
           scrollbar={{ draggable: true }}
           navigation
           pagination={{ clickable: true }}
-          modules={[Autoplay, Pagination, Navigation]}
+          modules={[ Pagination, Navigation]}
           breakpoints={{
             768: {
               slidesPerView: 3,
