@@ -21,32 +21,41 @@ const PrintingPage = () => {
   //oursercie
 
   const isPrint = (e) => {
-    e.target.parentNode.classList.add("bg-red-600");
-    e.target.parentNode.nextElementSibling.classList.remove("bg-red-600");
-    e.target.parentNode.nextElementSibling.nextElementSibling.classList.remove(
-      "bg-red-600"
-    );
-    setPrint(true);
-    setDesign(false);
-    setProduct(false);
+    if(!isclick){
+      e.target.parentNode.classList.add("bg-red-600");
+      e.target.parentNode.nextElementSibling.classList.remove("bg-red-600");
+      e.target.parentNode.nextElementSibling.nextElementSibling.classList.remove(
+        "bg-red-600"
+      );
+      setPrint(true);
+      setDesign(false);
+      setProduct(false);
+    }
+    
   };
   const isDesign = (e) => {
-    e.target.parentNode.classList.add("bg-red-600");
-    e.target.parentNode.nextElementSibling.classList.remove("bg-red-600");
-    e.target.parentNode.previousElementSibling.classList.remove("bg-red-600");
-    setPrint(false);
-    setDesign(true);
-    setProduct(false);
+    if(!isclick){
+      e.target.parentNode.classList.add("bg-red-600");
+      e.target.parentNode.nextElementSibling.classList.remove("bg-red-600");
+      e.target.parentNode.previousElementSibling.classList.remove("bg-red-600");
+      setPrint(false);
+      setDesign(true);
+      setProduct(false);
+    }
+    
   };
   const isProduct = (e) => {
-    e.target.parentNode.classList.add("bg-red-600");
-    e.target.parentNode.previousElementSibling.classList.remove("bg-red-600");
-    e.target.parentNode.previousElementSibling.previousElementSibling.classList.remove(
-      "bg-red-600"
-    );
-    setPrint(false);
-    setDesign(false);
-    setProduct(true);
+    if(!isclick){
+      e.target.parentNode.classList.add("bg-red-600");
+      e.target.parentNode.previousElementSibling.classList.remove("bg-red-600");
+      e.target.parentNode.previousElementSibling.previousElementSibling.classList.remove(
+        "bg-red-600"
+      );
+      setPrint(false);
+      setDesign(false);
+      setProduct(true);
+    }
+   
   };
 
   // service list
@@ -61,6 +70,7 @@ const PrintingPage = () => {
 
       e.target.lastElementChild.classList.remove(printing.modalExit);
       e.target.lastElementChild.classList.add(printing.modalExit1);
+      setclick(true)
     }
   };
 
@@ -75,6 +85,7 @@ const PrintingPage = () => {
     );
     e.target.parentNode.classList.remove(printing.modalExit1);
     e.target.parentNode.classList.add(printing.modalExit);
+    setclick(false)
   };
   //slide
 
