@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import styles from "@styles/footer.module.css";
 import printing from "@styles/printing.module.css";
 import { Swiper, SwiperSlide } from "swiper/react"; // basic
 import SwiperCore, { Autoplay, Navigation, Pagination } from "swiper";
@@ -220,7 +219,7 @@ const PrintingPage = () => {
         <div></div>
       </div>
       {/* gallery */}
-      <div className={styles.galleryBackground}>
+      <div className={printing.galleryBackground}>
         {slide ? (
           <div className="flex w-2/5 h-full justify-center items-center">
             <div>

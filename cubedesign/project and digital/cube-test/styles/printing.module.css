@@ -50,3 +50,12 @@
     right: 50px;
     z-index: 10;
 }
+
+
+
+.galleryBackground{
+    width: 100%;
+    height: 30vh;
+    background: #103558;
+    display: flex;
+  }
