@@ -232,17 +232,11 @@ const PrintingPage = () => {
             {`<`}{" "}
           </button>
         )}
-
-        <Swiper
+  <Swiper
           spaceBetween={50}
           slidesPerView={3}
           speed={1200}
           slidesPerGroup= {3}
-          autoplay={{
-            delay: 1000,
-            disableOnInteraction: false,
-          }}
-          loop={true}
           scrollbar={{ draggable: true }}
           navigation
           pagination={{ clickable: true }}
@@ -261,6 +255,7 @@ const PrintingPage = () => {
           <SwiperSlide className="bg-emerald-600">Slide 6</SwiperSlide>
           ...
         </Swiper>
+        
 
         <button className="text-2xl " onClick={rightSlide}>
           {" "}
