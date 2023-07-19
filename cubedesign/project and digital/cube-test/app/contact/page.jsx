@@ -2,10 +2,7 @@
 import React, { useRef } from "react";
 import emailjs from "@emailjs/browser";
 
-const ContactPage = () => {
-
-  
-
+const ContactUs = () => {
   const form = useRef();
 
   const sendEmail = (e) => {
@@ -54,13 +51,13 @@ const ContactPage = () => {
     const cbArray = [cb1,cb2,cb3,cb4];
   const serviceId = e.target.parentNode.previousSibling.id;
   const isChecked = e.target.parentNode.previousSibling.checked;
-  const cbBgArray = ["/images/contact-option-printing.jpg","/images/contact-option-digital.jpg","/images/contact-option-complex.jpg","/images/contact-option-complex-idk.jpg"]
+  const cbBgArray = ["/images/Contact-Service-Printing.svg","/images/Contact-Service-Digital.svg","/images/Contact-Service-Complex.svg","/images/Contact-Service-Idk.svg"]
 
     e.preventDefault();
     e.target.parentNode.previousSibling.checked = !isChecked;
     if(serviceId == "cb1"){
       if(!isChecked){
-        e.target.src = "/images/contact-option-printing-click.jpg";
+        e.target.src = "/images/Contact-Service-Printing-Click.svg";
         // console.log(cb1.nextSibling.firstChild)
         // console.log(cb1.checked);
         cbArray.splice(0, 1);
@@ -72,11 +69,11 @@ const ContactPage = () => {
         });
         
       }else{
-        e.target.src = "/images/contact-option-printing.jpg";
+        e.target.src = "/images/Contact-Service-Printing.svg";
       }
     }else if(serviceId == "cb2"){
       if(!isChecked){
-        e.target.src = "/images/contact-option-digital-click.jpg";
+        e.target.src = "/images/Contact-Service-Digital-Click.svg";
         cbArray.splice(1, 1);
         cbBgArray.splice(1, 1);
         let i = 0;
@@ -85,12 +82,12 @@ const ContactPage = () => {
           element.checked = false;
         });
       }else{
-        e.target.src = "/images/contact-option-digital.jpg";
+        e.target.src = "/images/Contact-Service-Digital.svg";
       }
     }else if(serviceId == "cb3"){
       
       if(!isChecked){
-        e.target.src = "/images/contact-option-complex-click.jpg";
+        e.target.src = "/images/Contact-Service-Complex-Click.svg";
         cbArray.splice(2, 1);
         cbBgArray.splice(2, 1);
         let i = 0;
@@ -99,11 +96,11 @@ const ContactPage = () => {
           element.checked = false;
         });
       }else{
-        e.target.src = "/images/contact-option-complex.jpg";
+        e.target.src = "/images/Contact-Service-Complex.svg";
       }
     }else {
       if(!isChecked){
-        e.target.src = "/images/contact-option-idk-click.jpg";
+        e.target.src = "/images/Contact-Service-Idk-Click.svg";
         cbArray.splice(3, 1);
         cbBgArray.splice(3, 1);
         let i = 0;
@@ -112,7 +109,7 @@ const ContactPage = () => {
           element.checked = false;
         });
       }else{
-        e.target.src = "/images/contact-option-complex-idk.jpg";
+        e.target.src = "/images/Contact-Service-Idk.svg";
       }
     }
   }
@@ -158,7 +155,7 @@ const ContactPage = () => {
                   className="hidden"
                 />
                 <label for="cb1" onClick={printClick}>
-                  <img src="/images/contact-option-printing.jpg" />
+                  <img src="/images/Contact-Service-Printing.svg" />
                 </label>
               </div>
               <div>
@@ -170,7 +167,7 @@ const ContactPage = () => {
                   className="hidden"
                 />
                 <label for="cb2" onClick={printClick}>
-                  <img src="/images/contact-option-digital.jpg" />
+                  <img src="/images/Contact-Service-Digital.svg" />
                 </label>
               </div>
               <div>
@@ -182,7 +179,7 @@ const ContactPage = () => {
                   className="hidden"
                 />
                 <label for="cb3" onClick={printClick}>
-                  <img src="/images/contact-option-complex.jpg" />
+                  <img src="/images/Contact-Service-Complex.svg" />
                 </label>
               </div>
               <div>
@@ -194,7 +191,7 @@ const ContactPage = () => {
                   className="hidden"
                 />
                 <label for="cb4" onClick={printClick}>
-                  <img src="/images/contact-option-complex-idk.jpg" />
+                  <img src="/images/Contact-Service-Idk.svg" />
                 </label>
               </div>
               </div>
@@ -237,5 +234,4 @@ const ContactPage = () => {
     </div>
   );
 };
-
-export default ContactPage;
+export default ContactUs;
